@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Landing.css";
 
 function Landing(){
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -50,11 +52,14 @@ function Landing(){
 
     return(
         <div className="landing">
+            {/* Hero Section */}
+            <div className="landing__hero">
+                <div className="landing__heroOverlay">
+                    <h2 className="landing__heroTitle">Book Your Next Trip</h2>
+                </div>
+            </div>
+
             <div className="landing__container">
-                <header className="landing__header">
-                    <h1 className="landing__title">PATHSY</h1>
-                    <p className="landing__subtitle">Browse tour packages from our catalogue.</p>
-                </header>
 
                 {loading ? (
                     <div className="landing__state">Loading tours…</div>
@@ -67,7 +72,7 @@ function Landing(){
                 ) : (
                     <section className="landing__grid" aria-label="Tour packages">
                         {data.map((obj, index) => {
-                            const key = obj?.id ?? `${obj?.tourtype ?? "tour"}-${index}`;
+                            const key = obj?.price ?? `${obj?.tourtype ?? "tour"}-${index}`;
                             const title = obj?.description || obj?.tourtype || "Tour";
                             const badge = String(obj?.tourtype || "Tour").toUpperCase();
                             const price = formatPrice(obj?.price);
@@ -89,7 +94,13 @@ function Landing(){
 
                                     <div className="tourCard__body">
                                         <div className="tourCard__badge">{badge}</div>
-                                        <h2 className="tourCard__title" title={title}>{title}</h2>
+                                        <h2 
+                                            className="tourCard__title tourCard__title--clickable" 
+                                            title={title}
+                                            onClick={() => navigate(`/tour/${obj.price}`)}
+                                        >
+                                            {title}
+                                        </h2>
 
                                         <div className="tourCard__meta">
                                             {obj?.duration ? <span>{obj.duration}</span> : null}

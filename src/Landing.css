@@ -4,6 +4,41 @@
   min-height: 100vh;
 }
 
+.landing__hero {
+  width: 100%;
+  height: 400px;
+  background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing__heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing__heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0 2rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.5px;
+}
+
 .landing__container {
   max-width: 1200px;
   margin: 0 auto;
@@ -98,6 +133,16 @@
   line-height: 1.3;
   font-weight: 800;
   color: #111827;
+}
+
+.tourCard__title--clickable {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.tourCard__title--clickable:hover {
+  color: #1976d2;
+  text-decoration: underline;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -140,4 +185,26 @@
 .tourCard__price {
   font-weight: 900;
   color: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .landing__hero {
+    height: 300px;
+  }
+
+  .landing__heroTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing__hero {
+    height: 250px;
+  }
+
+  .landing__heroTitle {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
 }

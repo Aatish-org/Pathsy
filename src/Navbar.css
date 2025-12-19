@@ -1,0 +1,183 @@
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.navbar__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 70px;
+}
+
+.navbar__logo {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #ff6b6b;
+    cursor: pointer;
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+    transition: color 0.2s;
+}
+
+.navbar__logo:hover {
+    color: #ff5252;
+}
+
+.navbar__search {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #f3f4f6;
+    border-radius: 50px;
+    padding: 0.5rem 0.75rem 0.5rem 1.25rem;
+    transition: all 0.2s;
+}
+
+.navbar__search:focus-within {
+    background: #ffffff;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.navbar__searchIcon {
+    width: 24px;
+    height: 24px;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+.navbar__searchInput {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    color: #1f2937;
+    outline: none;
+    padding: 0.5rem;
+}
+
+.navbar__searchInput::placeholder {
+    color: #9ca3af;
+}
+
+.navbar__searchBtn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.65rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.navbar__searchBtn:hover {
+    background: #2563eb;
+}
+
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar__iconBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #374151;
+    white-space: nowrap;
+}
+
+.navbar__iconBtn:hover {
+    background: #f3f4f6;
+}
+
+.navbar__icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.navbar__iconLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.navbar__iconBtn--currency .navbar__iconLabel {
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .navbar__container {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .navbar__iconLabel {
+        display: none;
+    }
+
+    .navbar__iconBtn {
+        padding: 0.5rem;
+    }
+
+    .navbar__search {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar__container {
+        height: 60px;
+        gap: 0.5rem;
+    }
+
+    .navbar__logo {
+        font-size: 1.5rem;
+    }
+
+    .navbar__search {
+        flex: 1;
+        max-width: none;
+        padding: 0.4rem 0.5rem 0.4rem 0.75rem;
+    }
+
+    .navbar__searchInput {
+        font-size: 0.875rem;
+        padding: 0.25rem;
+    }
+
+    .navbar__searchBtn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .navbar__searchIcon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .navbar__icon {
+        width: 20px;
+        height: 20px;
+    }
+}
